@@ -1,23 +1,34 @@
-import logo from './logo.svg';
-import './App.css';
+import { useState } from "react";
+import "./App.css";
 
 function App() {
+  const [bgColor, setBgColor] = useState("purple");
+  const HandleBg = (e) => {
+    e.preventDefault();
+    const value = e.target.value;
+    // console.log(value);
+ setBgColor(value)
+  };
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div style={{backgroundColor:bgColor}} className="App">
+      <h1>BackGround ColorSwitch</h1>
+      <div className="btn-grp">
+        <button value="red" onClick={(e) => HandleBg(e)} className="btn red">
+          Red
+        </button>
+        <button value="blue"  onClick={(e) => HandleBg(e)} className="btn blue">
+          Blue
+        </button>
+        <button value="green" onClick={(e) => HandleBg(e)} className="btn green">
+          Green
+        </button>
+        <button value="black" onClick={(e) => HandleBg(e)} className="btn black">
+          Black
+        </button>
+        <button value="yellow" onClick={(e) => HandleBg(e)} className="btn yellow">
+          Yellow
+        </button>
+      </div>
     </div>
   );
 }
